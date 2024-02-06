@@ -3,11 +3,18 @@
 ultrapasse 100 anos. Ao término, apresente:
    -> A idade da pessoa mais velha.
 */
-idade = 10
-idade += 5
+
+idade = 1
+limite = 100
+pessoaVelha = 0
 
 do {
    console.log(`Digite sua idade: ${idade}`)
+   if (idade > pessoaVelha){
+      pessoaVelha = idade
+   }
+   idade++
 } 
-while(idade <= 100)
-console.log(idade)
+while(idade <= limite)
+
+console.log(`A pessoa mais velha tem ${pessoaVelha} anos`)

@@ -10,10 +10,7 @@ de acordo com o período de hospedagem, sendo:
 let diaria = 200
 let qtd_dia = 11
 
-console.log(`Seja bem-vindo a pousada Murilove!`)
 console.log(`Digite o período de sua hospedagem: ${qtd_dia} dias`)
-
-
 
 if (qtd_dia > 10) {
     diaria = 200 + (10 * qtd_dia)
