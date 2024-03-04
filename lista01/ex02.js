@@ -8,20 +8,42 @@ de acordo com o período de hospedagem, sendo:
 */
 
 let diaria = 200
-let qtd_dia = 11
 
-console.log(`Digite o período de sua hospedagem: ${qtd_dia} dias`)
+while(true){
+    try {
+        let qtd_dia = prompt("Digite quantos dias irá ficar hospedado: ");
+        if (qtd_dia === null){
+            alert("Operação Cancelada!");
+            break
+        }
 
-if (qtd_dia > 10) {
-    diaria = 200 + (10 * qtd_dia)
-    console.log(`Valor total da hospedagem: ${diaria}`)
+        qtd_dia = parseInt(qtd_dia)
+
+        if (isNaN(qtd_dia) || qtd_dia <= 0) {
+            throw new Error("Valor Inválido");
+        }
+
+        if (qtd_dia > 10) {
+            diaria = 200 + (10 * qtd_dia)
+            alert(`Valor total da hospedagem: ${diaria}`)
+        }
+        
+        if (qtd_dia == 10){
+            diaria = 200 + (15 * qtd_dia)
+            alert(`Valor total da hospedagem: ${diaria}`)
+        }
+
+        else {
+            diaria = 200 + (20 * qtd_dia)
+            alert(`Valor total da hospedagem: ${diaria}`)
+        }
+        
+
+    } catch(error){
+        alert(error.message)
+    }
 }
 
-else if (qtd_dia == 10){
-    diaria = 200 + (15 * qtd_dia)
-    console.log(`Valor total da hospedagem: ${diaria}`)
-}
-else {
-    diaria = 200 + (20 * qtd_dia)
-    console.log(`Valor total da hospedagem: ${diaria}`)
-}
+
+
+

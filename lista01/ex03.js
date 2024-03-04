@@ -8,26 +8,39 @@ Desenvolva um script que leia o peso e a altura de uma pessoa e apresente a sua 
    -> Acima de 30 é considerado “Obeso”.
 */
 
-let peso = 80
-let altura = 1.90
-let imc = peso / (altura * altura)
 
-console.log(`Digite o seu peso: ${peso} `)
-console.log(`Digite a sua altura: ${altura} `)
+while (true){
+    try{
+        let peso = prompt("Digite seu peso: ")
+        let altura = prompt("Digite sua altura: ")
+        if (peso === null || altura === null){
+            alert("Operação Cancelada!")
+            break
+        }
+        peso = parseFloat(peso)
+        altura = parseFloat(altura)
 
+        let imc = peso / (altura * altura)
 
+        if (isNaN(peso) || isNaN(altura) || altura <= 0 || peso <= 0){
+            throw new Error("Valor Inválido")
+        }
+        if (imc > 30){
+            alert("Obeso")
+        }
+        else if (imc > 25){
+            alert("Sobrepeso")
+        } 
+        else if (imc > 18.5){
+            alert("Normal")
+        } 
+        else{
+            alert("Abaixo do peso")
+        } 
+       
 
-if (imc > 30){
-    console.log(`Obeso`)
+    }catch(error){
+        alert(error.message)
+    }
 }
-else if (imc > 25){
-    console.log(`Sobrepeso`)
-} 
-else if (imc > 18.5){
-    console.log(`Normal`)
-} 
-else{
-    console.log(`Abaixo do peso`)
-} 
-
 

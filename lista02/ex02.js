@@ -4,17 +4,30 @@ ultrapasse 100 anos. Ao término, apresente:
    -> A idade da pessoa mais velha.
 */
 
-idade = 1
-limite = 100
-pessoaVelha = 0
+let limite = 100;
+let pessoaVelha = 0;
+let somaIdades = 0;
+let idade;
 
 do {
-   console.log(`Digite sua idade: ${idade}`)
-   if (idade > pessoaVelha){
-      pessoaVelha = idade
-   }
-   idade++
-} 
-while(idade <= limite)
+    let entradaIdade = prompt("Digite sua idade:");
 
-console.log(`A pessoa mais velha tem ${pessoaVelha} anos`)
+    if (entradaIdade === null) {
+        alert("Operação Cancelada");
+        break;
+    }
+
+    idade = parseInt(entradaIdade);
+
+    if (isNaN(idade) || idade <= 0) {
+        throw new Error("Valor Inválido");
+    }
+
+    somaIdades += idade;
+
+    if (idade > pessoaVelha) {
+        pessoaVelha = idade;
+    }
+} while (somaIdades < limite);
+
+alert(`A pessoa mais velha tem ${pessoaVelha} anos`);

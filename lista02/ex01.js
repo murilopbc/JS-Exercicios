@@ -5,15 +5,36 @@
    -> A média aritmética das notas da sala.
 */
 
-nota_matematica = 6
-contador = 1
-limite = 10
-media = nota_matematica / contador
+let contador = 1
+let limite = 5
+let somaNotas = 0
 
 while (contador <= limite){
-   nota = console.log(`Digite a nota do aluno ${contador}: ${nota_matematica}`)
-   contador++
-}
-console.log(`Foram lidas ${limite} notas`)
+   try {
+      nota = prompt(`Digite a nota do aluno ${contador}:`)
+      if (nota === null){
+         alert("Operação Cancelada!")
+         break
+      }
 
-console.log(`A média da sala na prova de matemática foi ${media}`)
+      nota = parseFloat(nota)
+
+      if (isNaN(nota) || nota < 0){
+         throw new Error("Valor Inválido")
+      }
+      somaNotas += nota
+      contador++
+
+   }
+   catch(error){
+      alert(error.message)
+   }
+  
+}
+if (contador > 1) {
+   
+   let media = somaNotas / (contador - 1);
+   alert(`A média da sala na prova de matemática foi ${media.toFixed(2)}`);
+} else {
+   alert("Nenhuma nota válida foi inserida.");
+}
